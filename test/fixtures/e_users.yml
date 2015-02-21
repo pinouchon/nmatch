@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  batch_id: 1
+  title: MyString
+  login: MyString
+  nom: MyString
+  prenom: MyString
+  picture: MyString
+  location: MyString
+  uid: MyString
+  gid: MyString
+  promo: MyString
+  credits: 1
+  gpa_bachelor: 1.5
+  gpa_master: 1.5
+  gpa_average: 1.5
+
+two:
+  batch_id: 1
+  title: MyString
+  login: MyString
+  nom: MyString
+  prenom: MyString
+  picture: MyString
+  location: MyString
+  uid: MyString
+  gid: MyString
+  promo: MyString
+  credits: 1
+  gpa_bachelor: 1.5
+  gpa_master: 1.5
+  gpa_average: 1.5

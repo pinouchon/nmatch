@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  batch_id: 1
+  user_id: 1
+  school_year: 1
+  id_user_history: MyString
+  code_module: MyString
+  code_instance: MyString
+  date_ins: 2015-02-21 17:14:07
+  cycle: MyString
+  grade: MyString
+  credits: 1
+  flags: MyString
+  barrage: MyString
+  instance_id: MyString
+  module_rating: 1
+  semester: 1
+
+two:
+  batch_id: 1
+  user_id: 1
+  school_year: 1
+  id_user_history: MyString
+  code_module: MyString
+  code_instance: MyString
+  date_ins: 2015-02-21 17:14:07
+  cycle: MyString
+  grade: MyString
+  credits: 1
+  flags: MyString
+  barrage: MyString
+  instance_id: MyString
+  module_rating: 1
+  semester: 1
