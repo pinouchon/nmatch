@@ -31,12 +31,6 @@ namespace :epitech do
     filtered_modules[0]
   end
 
-  def get_batch_id
-    batch_id = ENV['BATCH_ID'] || Batch.last.andand.id
-    batch_id = Batch.create({active: true}).id if !batch_id
-    batch_id
-  end
-
   def login
     agent = Mechanize.new
     begin
@@ -61,6 +55,7 @@ namespace :epitech do
       rescue Net::HTTP::Persistent::Error, OpenSSL::SSL::SSLError => e
         puts "Exception: #{e.message}. Sleeping 20 sec"
         sleep 20
+        abort('aborting.')
         next
       end
     end
@@ -125,14 +120,14 @@ namespace :epitech do
   end
 
   task remove_users: :environment do
-    batch_id = get_batch_id
+    batch_id = Batch.current_or_create.id
     puts "#{EUser.where(batch_id: batch_id).count} EUser in db"
     EUser.delete_all
     puts "#{EUser.where(batch_id: batch_id).count} EUser in db"
   end
 
   task load_users: :environment do
-    batch_id = get_batch_id
+    batch_id = Batch.current_or_create.id
     puts "#{EUser.where(batch_id: batch_id).count} EUser in db"
 
     puts 'Loading file...'
@@ -148,7 +143,7 @@ namespace :epitech do
 
   task scrape_users: :environment do
     puts 'Scraping users...'
-    batch_id = get_batch_id
+    batch_id = Batch.current_or_create.id
     puts 'Login in...'
     agent = login
     puts 'Logged in.'

@@ -2,6 +2,7 @@ class EUser < ActiveRecord::Base
   belongs_to :batch
   has_many :e_modules
   has_many :e_notes
+  has_one :user, as: :special_user
 
   validates_presence_of :login
   validates_uniqueness_of :login, scope: :batch_id
@@ -31,7 +32,8 @@ class EUser < ActiveRecord::Base
   def calculate_average
     hash = EUser.includes(e_modules: :e_notes).find(id).e_modules.flat_map do |m|
       m.e_notes.map do |n|
-        note = m.title =~ /toeic/i ? 20 * (n.final_note.to_f/990) : n.final_note.to_f
+        note = n.final_note.to_f > 42 ? 20 * (n.final_note.to_f/990) : n.final_note.to_f
+        note = 42 if note > 42
         {
           weight: m.credits || 0,
           value: [0, note || 0].max

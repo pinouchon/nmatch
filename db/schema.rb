@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150222181619) do
+ActiveRecord::Schema.define(version: 20150222230037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,45 @@ ActiveRecord::Schema.define(version: 20150222181619) do
 
   create_table "schools", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tag_users", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "tag_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tags", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.integer  "batch_id"
+    t.integer  "user_id"
+    t.string   "user_type"
+    t.string   "school"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "picture"
+    t.string   "city"
+    t.integer  "year"
+    t.integer  "credits"
+    t.float    "real_average"
+    t.float    "real_gpa"
+    t.float    "average"
+    t.float    "gpa"
+    t.string   "linkedin_url"
+    t.string   "linkedin_picture"
+    t.integer  "linkedin_connections"
+    t.text     "linkedin_description"
+    t.string   "linkedin_locality"
+    t.string   "linkedin_industry"
+    t.text     "linkedin_summary"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
