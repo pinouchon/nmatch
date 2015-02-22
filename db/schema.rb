@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150221161658) do
+ActiveRecord::Schema.define(version: 20150222151134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,10 +25,12 @@ ActiveRecord::Schema.define(version: 20150221161658) do
   create_table "e_modules", force: true do |t|
     t.integer  "batch_id"
     t.integer  "e_user_id"
-    t.integer  "school_year"
+    t.integer  "scolaryear"
     t.string   "id_user_history"
-    t.string   "code_module"
-    t.string   "code_instance"
+    t.string   "codemodule"
+    t.string   "codeinstance"
+    t.string   "title"
+    t.integer  "id_instance"
     t.datetime "date_ins"
     t.string   "cycle"
     t.string   "grade"
@@ -46,7 +48,7 @@ ActiveRecord::Schema.define(version: 20150221161658) do
     t.integer  "batch_id"
     t.integer  "e_user_id"
     t.integer  "e_module_id"
-    t.integer  "schoolyear"
+    t.integer  "scolaryear"
     t.string   "codemodule"
     t.string   "titlemodule"
     t.string   "codeinstance"
@@ -55,7 +57,7 @@ ActiveRecord::Schema.define(version: 20150221161658) do
     t.datetime "date"
     t.string   "correcteur"
     t.float    "final_note"
-    t.string   "comment"
+    t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -77,6 +79,10 @@ ActiveRecord::Schema.define(version: 20150221161658) do
     t.float    "gpa_average"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "average"
+    t.string   "year"
+    t.string   "school"
+    t.integer  "last_batch",   default: 0
   end
 
   create_table "schools", force: true do |t|

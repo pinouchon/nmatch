@@ -4,7 +4,7 @@ class CreateENotes < ActiveRecord::Migration
       t.integer :batch_id
       t.integer :e_user_id
       t.integer :e_module_id
-      t.integer :schoolyear
+      t.integer :scolaryear
       t.string :codemodule
       t.string :titlemodule
       t.string :codeinstance
@@ -13,7 +13,7 @@ class CreateENotes < ActiveRecord::Migration
       t.datetime :date
       t.string :correcteur
       t.float :final_note
-      t.string :comment
+      t.text :comment
 
       t.timestamps
     end

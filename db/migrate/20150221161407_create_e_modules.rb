@@ -3,10 +3,12 @@ class CreateEModules < ActiveRecord::Migration
     create_table :e_modules do |t|
       t.integer :batch_id
       t.integer :e_user_id
-      t.integer :school_year
+      t.integer :scolaryear
       t.string :id_user_history
-      t.string :code_module
-      t.string :code_instance
+      t.string :codemodule
+      t.string :codeinstance
+      t.string :title
+      t.integer :id_instance
       t.datetime :date_ins
       t.string :cycle
       t.string :grade

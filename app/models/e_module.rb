@@ -5,5 +5,5 @@ class EModule < ActiveRecord::Base
 
   validates_presence_of :batch_id
   validates_presence_of :e_user_id
-  validates_uniqueness_of :code_module, scope: [:batch_id, :user_id]
+  validates_uniqueness_of :codemodule, scope: [:batch_id, :e_user_id]
 end
