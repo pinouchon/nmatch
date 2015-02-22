@@ -93,7 +93,7 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
-    domain_name (0.5.12)
+    domain_name (0.5.23)
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     eventmachine (1.0.7)
@@ -105,8 +105,6 @@ GEM
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
     hike (1.2.3)
-    http-cookie (1.0.1)
-      domain_name (~> 0.5)
     i18n (0.7.0)
     inherited_resources (1.6.0)
       actionpack (>= 3.2, < 5)
@@ -128,22 +126,21 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    mechanize (2.7.1)
+    mechanize (2.4)
       domain_name (~> 0.5, >= 0.5.1)
-      http-cookie (~> 1.0.0)
       mime-types (~> 1.17, >= 1.17.2)
       net-http-digest_auth (~> 1.1, >= 1.1.1)
       net-http-persistent (~> 2.5, >= 2.5.2)
       nokogiri (~> 1.4)
       ntlm-http (~> 0.1, >= 0.1.1)
-      webrobots (>= 0.0.9, < 0.2)
+      webrobots (~> 0.0, >= 0.0.9)
     method_source (0.8.2)
     mime-types (1.25.1)
     mini_portile (0.6.1)
     minitest (5.5.1)
     multi_json (1.10.1)
     net-http-digest_auth (1.4)
-    net-http-persistent (2.9)
+    net-http-persistent (2.9.4)
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
     ntlm-http (0.1.1)
@@ -224,7 +221,7 @@ GEM
     uglifier (2.7.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    unf (0.1.1)
+    unf (0.1.4)
       unf_ext
     unf_ext (0.0.6)
     warden (1.2.3)
@@ -247,7 +244,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails (= 2.0.2)
   kaminari
-  mechanize
+  mechanize (= 2.4)
   nokogiri
   oj
   pg

@@ -23,7 +23,22 @@ class EUser < ActiveRecord::Base
      gpa_average: gpa_average,
      average: average,
      year: year,
-     school: school
+     school: school,
+     city: city
     }
+  end
+
+  def calculate_average
+    hash = EUser.includes(e_modules: :e_notes).find(id).e_modules.flat_map do |m|
+      m.e_notes.map do |n|
+        note = m.title =~ /toeic/i ? 20 * (n.final_note.to_f/990) : n.final_note.to_f
+        {
+          weight: m.credits || 0,
+          value: [0, note || 0].max
+        }
+      end
+    end
+    hash.map { |e| e[:value] * e[:weight] }.reduce(:+).to_f /
+      hash.map { |e| e[:weight] }.reduce(:+).to_f
   end
 end

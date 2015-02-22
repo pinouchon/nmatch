@@ -10,7 +10,7 @@ gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 gem 'oj'
 gem 'nokogiri'
-gem 'mechanize'
+gem 'mechanize', '= 2.4'
 gem 'awesome_print'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

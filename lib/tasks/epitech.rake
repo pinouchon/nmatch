@@ -16,20 +16,16 @@ namespace :epitech do
         m.codemodule == note.codemodule &&
         m.scolaryear == note.scolaryear
     }
-    puts 'findModule B'
     return filtered_modules[0] if filtered_modules.count == 1
     filtered_modules = modules.select { |m|
       m.e_user_id == user.id &&
         m.batch_id == batch_id &&
         m.codemodule == note.codemodule
     }
-    puts 'findModule C'
     return filtered_modules[0] if filtered_modules.count == 1
     filtered_modules = EModule.where({codemodule: note.codemodule, scolaryear: note.scolaryear, codeinstance: note.codeinstance})
-    puts 'findModule D'
     return filtered_modules[0] if filtered_modules.andand.count == 1
     filtered_module = EModule.where({codemodule: note.codemodule}).first
-    puts 'findModule E'
     return filtered_module if filtered_module
     puts "Cannot find module"
     filtered_modules[0]
@@ -58,7 +54,16 @@ namespace :epitech do
   def scape_user(agent, batch_id, user)
     puts "Get #{BASE_URL}/user/#{user.login}"
     ################################################################# Parsing page
-    agent.get("#{BASE_URL}/user/#{user.login}")
+    1.upto 10 do
+      begin
+        agent.get("#{BASE_URL}/user/#{user.login}", {ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE})
+        break
+      rescue Net::HTTP::Persistent::Error, OpenSSL::SSL::SSLError => e
+        puts "Exception: #{e.message}. Sleeping 20 sec"
+        sleep 20
+        next
+      end
+    end
     js = agent.page.search('script[type="text/javascript"]').
       select { |e| e.text.include?('var user = user || {};') }[0].
       text rescue nil
@@ -109,10 +114,14 @@ namespace :epitech do
     user.uid = agent.page.search('.value.uid').text.strip
     user.gid = agent.page.search('.value.gid').text.strip
     user.year = agent.page.search('.item .studentyear').text.strip
+    user.city = agent.page.search('.item.city .value').text[/(\w+)$/, 1]
     user.last_batch = batch_id
 
-    ap user.to_hash
     user.save
+    user.average = user.calculate_average
+    user.save
+
+    ap user.to_hash
   end
 
   task remove_users: :environment do

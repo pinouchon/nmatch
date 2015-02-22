@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150222151134) do
+ActiveRecord::Schema.define(version: 20150222181619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 20150222151134) do
     t.string   "year"
     t.string   "school"
     t.integer  "last_batch",   default: 0
+    t.string   "city"
   end
 
   create_table "schools", force: true do |t|
