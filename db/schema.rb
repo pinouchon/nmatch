@@ -127,6 +127,8 @@ ActiveRecord::Schema.define(version: 20150222230037) do
     t.string   "linkedin_locality"
     t.string   "linkedin_industry"
     t.text     "linkedin_summary"
+    t.boolean  "linkedin_scraped",     default: false
+    t.boolean  "linkedin_found",       default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
