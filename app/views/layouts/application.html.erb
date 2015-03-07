@@ -1,14 +1,141 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>NmatchTest</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <meta charset="utf-8">
+  <title>nMatch</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.min.css">
+
+  <!-- PAGE LEVEL PLUGINS STYLES -->
+  <link href="/assets/css/plugins/select2/select2.css" rel="stylesheet">
+
+  <!-- REQUIRE FOR SPEECH COMMANDS -->
+  <link rel="stylesheet" type="text/css" href="/assets/css/plugins/gritter/jquery.gritter.css"/>
+
+  <!-- Tc core CSS -->
+  <link id="qstyle" rel="stylesheet" href="/assets/css/themes/style-1.css">
+
+  <!-- Add custom CSS here -->
+
+  <!-- End custom CSS here -->
+
+
+  <!--[if lt IE 9]>
+  <script src="/assets/js/html5shiv.js"></script>
+  <script src="/assets/js/respond.min.js"></script>
+  <![endif]-->
+  <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
+
 </head>
+
 <body>
+<div id="wrapper">
+<div id="main-container">
+<!-- BEGIN TOP NAVIGATION -->
+<%= render partial: 'layouts/header' %>
+<!-- /.navbar-top -->
+<!-- END TOP NAVIGATION -->
 
-<%= yield %>
 
+<!-- BEGIN SIDE NAVIGATION -->
+<nav class="navbar-side collapsed" role="navigation">
+  <div class="navbar-collapse sidebar-collapse collapse">
+  <%= render partial: 'layouts/menu' %>
+  </div>
+</nav>
+<!-- END SIDE NAVIGATION -->
+
+
+<!-- BEGIN MAIN PAGE CONTENT -->
+<div id="page-wrapper" class="collapsed">
+  <!-- BEGIN PAGE HEADING ROW -->
+  <div class="row">
+    <div class="col-lg-12">
+      <!-- BEGIN BREADCRUMB -->
+      <%#= render partial: 'layouts/breadcrumbs' %>
+      <!-- END BREADCRUMB -->
+
+      <%= yield :page_header %>
+
+      <!-- /#ek-layout-button -->
+      <%#= render partial: 'layouts/ek_layout_button' %>
+      <!-- /#ek-layout-button -->
+
+    </div>
+    <!-- /.col-lg-12 -->
+  </div>
+  <!-- /.row -->
+  <!-- END PAGE HEADING ROW -->
+  <div class="row">
+    <div class="col-lg-12">
+
+      <!-- START YOUR CONTENT HERE -->
+      <%= yield %>
+      <!-- END YOUR CONTENT HERE -->
+
+    </div>
+  </div>
+
+  <!-- BEGIN FOOTER CONTENT -->
+  <div class="footer">
+    <div class="footer-inner collapsed">
+      <!-- basics/footer -->
+      <div class="footer-content">
+        &copy; 2014 <a href="#">nMatch</a>, All Rights Reserved.
+      </div>
+      <!-- /basics/footer -->
+    </div>
+  </div>
+  <button type="button" id="back-to-top" class="btn btn-primary btn-sm back-to-top">
+    <i class="fa fa-angle-double-up icon-only bigger-110"></i>
+  </button>
+  <!-- END FOOTER CONTENT -->
+
+</div>
+<!-- /#page-wrapper -->
+<!-- END MAIN PAGE CONTENT -->
+</div>
+</div>
+
+<!-- core JavaScript -->
+
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="/assets/js/plugins/pace/pace.min.js"></script>
+
+<!-- PAGE LEVEL PLUGINS JS -->
+<script src="/assets/js/plugins/select2/select2.min.js"></script>
+
+<!-- Themes Core Scripts -->
+<script src="/assets/js/main.js"></script>
+
+<!-- REQUIRE FOR SPEECH COMMANDS -->
+<script src="/assets/js/speech-commands.js"></script>
+<script src="/assets/js/plugins/gritter/jquery.gritter.min.js"></script>
+
+
+<%= javascript_include_tag 'application' %>
+
+<script>
+    $(document).ready(function () {
+        $("#skills-select").select2({
+            placeholder: "Select a skill",
+            width: 210,
+            allowClear: true
+        });
+    });
+</script>
+
+<!-- initial page level scripts for examples -->
 </body>
 </html>

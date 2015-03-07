@@ -1,0 +1,260 @@
+<%= content_for :page_header do %>
+    <div class="page-header title">
+      <!-- PAGE TITLE ROW -->
+      <h1>Find candidates <span class="sub-title">(demo version)</span></h1>
+    </div>
+<% end %>
+
+<style>
+    .form-inline .form-group {
+        vertical-align: top;
+    }
+
+    .checkbox-separator {
+        margin: -1px 0 2px -3px;
+    }
+</style>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="portlet">
+      <!--<div class="portlet-heading dark">-->
+      <!--<div class="portlet-title">-->
+      <!--<h4>Inline Form</h4>-->
+      <!--</div>-->
+      <!--<div class="portlet-widgets">-->
+      <!--<a data-toggle="collapse" data-parent="#accordion" href="#f-7"><i class="fa fa-chevron-down"></i></a>-->
+      <!--</div>-->
+      <!--<div class="clearfix"></div>-->
+      <!--</div>-->
+      <div id="f-7" class="panel-collapse collapse in">
+        <div class="portlet-body">
+          <form class="form-inline" role="form">
+            <div class="form-group" style="margin: 0 5px 0 25px">
+              <label for="">Year</label>
+            </div>
+            <div class="form-group">
+              <label>
+                <input type="checkbox" class="tc">
+                <span class="labels"> <b>ALL</b></span>
+              </label>
+              <hr class="checkbox-separator"/>
+              <label style="display:block">
+                <input type="checkbox" class="tc">
+                <span class="labels"> Bac +1</span>
+              </label>
+              <label style="display:block">
+                <input type="checkbox" class="tc">
+                <span class="labels"> Bac +2</span>
+              </label>
+              <label style="display:block">
+                <input type="checkbox" class="tc">
+                <span class="labels"> Bac +3</span>
+              </label>
+              <label style="display:block">
+                <input type="checkbox" class="tc">
+                <span class="labels"> Bac +4</span>
+              </label>
+              <label style="display:block">
+                <input type="checkbox" class="tc">
+                <span class="labels"> Bac +5</span>
+              </label>
+              <label style="display:block">
+                <input type="checkbox" class="tc">
+                <span class="labels"> Bac > +6</span>
+              </label>
+            </div>
+
+            <div class="form-group" style="margin: 0 5px 0 25px">
+              <label for="">City</label>
+            </div>
+            <div class="form-group">
+              <label>
+                <input type="checkbox" class="tc">
+                <span class="labels"> <b>ALL</b></span>
+              </label>
+              <hr class="checkbox-separator"/>
+              <label style="display:block">
+                <input type="checkbox" class="tc">
+                <span class="labels"> Paris</span>
+              </label>
+              <label style="display:block">
+                <input type="checkbox" class="tc">
+                <span class="labels"> Lyon</span>
+              </label>
+              <label style="display:block">
+                <input type="checkbox" class="tc">
+                <span class="labels"> Marseille</span>
+              </label>
+              <label style="display:block">
+                <input type="checkbox" class="tc">
+                <span class="labels"> Strasbourg</span>
+              </label>
+              <label style="display:block">
+                <input type="checkbox" class="tc">
+                <span class="labels"> Lille</span>
+              </label>
+              <label style="display:block">
+                <input type="checkbox" class="tc">
+                <span class="labels"> Toulouse</span>
+              </label>
+            </div>
+
+
+            <div class="form-group" style="margin: 0 5px 0 25px">
+              <label for="">School</label>
+            </div>
+            <div class="form-group">
+              <label>
+                <input type="checkbox" class="tc">
+                <span class="labels"> <b>ALL</b></span>
+              </label>
+              <hr class="checkbox-separator"/>
+              <label style="display:block">
+                <input type="checkbox" class="tc">
+                <span class="labels"> Epitech</span>
+              </label>
+              <label style="display:block">
+                <input type="checkbox" class="tc" disabled>
+                <span class="labels"> Epita</span>
+              </label>
+              <label style="display:block">
+                <input type="checkbox" class="tc" disabled>
+                <span class="labels"> Supinfo</span>
+              </label>
+              <label style="display:block">
+                <input type="checkbox" class="tc" disabled>
+                <span class="labels"> 42</span>
+              </label>
+            </div>
+
+            <div class="form-group" style="margin: 0 0 0 25px">
+              <label class="col-sm-2 control-label">Skills</label>
+
+              <div class="col-sm-5">
+                <select class="form-control" id="skills-select" multiple>
+                  <option value="RD">Red</option>
+                  <option value="OR">Orange</option>
+                  <option value="GR">green</option>
+                  <option value="BL">blue</option>
+                  <option value="YL">Yellow</option>
+                  <option value="JA">Jaipur</option>
+                  <option value="DL">Delhi</option>
+                  <option value="AJ">Ajmer</option>
+                  <option value="JD">Jodhpur</option>
+                  <option value="MB">Mumbai</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Find</button>
+            <!--<button type="submit" class="btn btn-primary btn-line"><i class="fa fa-key"></i>Sign in</button>-->
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="portlet"><!-- /Portlet -->
+  <div class="portlet-heading dark">
+    <div class="portlet-title">
+      <h4>Responsive table
+        <small class="text-white">(css only)</small>
+      </h4>
+    </div>
+    <div class="portlet-widgets">
+      <a data-toggle="collapse" data-parent="#accordion" href="#basic"><i class="fa fa-chevron-down"></i></a>
+      <span class="divider"></span>
+      <a href="#" class="box-close"><i class="fa fa-times"></i></a>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <div id="basic" class="panel-collapse collapse in">
+    <div class="portlet-body no-padding">
+      <table class="table table-bordered table-hover tc-table">
+        <thead>
+        <tr>
+          <th class="col-small center"><label><input type="checkbox" class="tc"><span class="labels"></span></label>
+          </th>
+          <th>User</th>
+          <th class="hidden-xs">Referred</th>
+          <th class="hidden-xs">Clicks</th>
+          <th class="hidden-xs"><i class="fa fa-dollar"></i> Earned</th>
+          <th class="hidden-xs">Status</th>
+          <th class="col-medium center">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td class="col-small center"><label><input type="checkbox" class="tc"><span class="labels"></span></label>
+          </td>
+          <td>Mark
+            <ul class="table-mobile-ul visible-xs list-unstyled">
+              <li>Referred: 35</li>
+              <li>Clicks: 387</li>
+              <li>Earned: $70</li>
+              <li><span class="label label-paid arrowed-in-right arrowed-in">Paid</span></li>
+            </ul>
+          </td>
+          <td class="hidden-xs">35</td>
+          <td class="hidden-xs">387</td>
+          <td class="hidden-xs">$70</td>
+          <td class="hidden-xs"><span class="label label-paid arrowed-in-right arrowed-in">Paid</span></td>
+          <td class="col-medium center">
+            <div class="btn-group btn-group-xs ">
+              <a href="" class="btn btn-inverse"><i class="fa fa-pencil icon-only"></i></a>
+              <a href="" class="btn btn-danger"><i class="fa fa-times icon-only"></i></a>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="col-small center"><label><input type="checkbox" class="tc"><span class="labels"></span></label>
+          </td>
+          <td>Jacob
+            <ul class="table-mobile-ul visible-xs list-unstyled">
+              <li>Referred: 130</li>
+              <li>Clicks: 769</li>
+              <li>Earned: $206</li>
+              <li><span class="label label-pending arrowed-in-right arrowed-in">Pending</span></li>
+            </ul>
+          </td>
+          <td class="hidden-xs">130</td>
+          <td class="hidden-xs">769</td>
+          <td class="hidden-xs">$206</td>
+          <td class="hidden-xs"><span class="label label-pending arrowed-in-right arrowed-in">Pending</span></td>
+          <td class="col-medium center">
+            <div class="btn-group btn-group-xs ">
+              <a href="" class="btn btn-inverse"><i class="fa fa-pencil icon-only"></i></a>
+              <a href="" class="btn btn-danger"><i class="fa fa-times icon-only"></i></a>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="col-small center"><label><input type="checkbox" class="tc"><span class="labels"></span></label>
+          </td>
+          <td>lee
+            <ul class="table-mobile-ul visible-xs list-unstyled">
+              <li>Referred: 56</li>
+              <li>Clicks: 537</li>
+              <li>Earned: $95</li>
+              <li><span class="label label-warning arrowed-in-right arrowed-in">Review</span></li>
+            </ul>
+          </td>
+          <td class="hidden-xs">56</td>
+          <td class="hidden-xs">537</td>
+          <td class="hidden-xs">$95</td>
+          <td class="hidden-xs"><span class="label label-warning arrowed-in-right arrowed-in">Review</span></td>
+          <td class="col-medium center">
+            <div class="btn-group btn-group-xs ">
+              <a href="" class="btn btn-inverse"><i class="fa fa-pencil icon-only"></i></a>
+              <a href="" class="btn btn-danger"><i class="fa fa-times icon-only"></i></a>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div><!-- /Portlet -->

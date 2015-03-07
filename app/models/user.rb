@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   def to_hash
     {
       id: id,
+      user_id: user_id,
       user_type: user_type,
       school: school,
       first_name: first_name,

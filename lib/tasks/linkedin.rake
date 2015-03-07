@@ -1,5 +1,6 @@
 namespace :linkedin do
   def scrape_user(agent, user)
+    return if user.first_name.nil? || user.last_name.nil?
     puts "searching linkedin page for #{user.full_name}..."
     agent.get("http://www.bing.com/search?q=#{user.first_name}+#{user.last_name}+epitech+linkedin")
 
