@@ -158,7 +158,7 @@
 </div>
 
 <div class="portlet"><!-- /Portlet -->
-  <div class="portlet-heading dark">
+  <div class="portlet-heading ">
     <div class="portlet-title">
       <h4>Responsive table
         <small class="text-white">(css only)</small>
@@ -173,86 +173,99 @@
   </div>
   <div id="basic" class="panel-collapse collapse in">
     <div class="portlet-body no-padding">
-      <table class="table table-bordered table-hover tc-table">
-        <thead>
-        <tr>
-          <th class="col-small center"><label><input type="checkbox" class="tc"><span class="labels"></span></label>
-          </th>
-          <th>User</th>
-          <th class="hidden-xs">Referred</th>
-          <th class="hidden-xs">Clicks</th>
-          <th class="hidden-xs"><i class="fa fa-dollar"></i> Earned</th>
-          <th class="hidden-xs">Status</th>
-          <th class="col-medium center">Action</th>
-        </tr>
-        </thead>
+      <table class="table table-bordered table-hover tc-table table-striped">
+        <!--<thead>-->
+        <!--<tr>-->
+        <!--<th class="col-small center"><label><input type="checkbox" class="tc"><span class="labels"></span></label>-->
+        <!--</th>-->
+        <!--<th>User</th>-->
+        <!--<th class="hidden-xs">Referred</th>-->
+        <!--<th class="hidden-xs">Clicks</th>-->
+        <!--<th class="hidden-xs"><i class="fa fa-dollar"></i> Earned</th>-->
+        <!--<th class="hidden-xs">Status</th>-->
+        <!--<th class="col-medium center">Action</th>-->
+        <!--</tr>-->
+        <!--</thead>-->
         <tbody>
-        <tr>
-          <td class="col-small center"><label><input type="checkbox" class="tc"><span class="labels"></span></label>
-          </td>
-          <td>Mark
-            <ul class="table-mobile-ul visible-xs list-unstyled">
-              <li>Referred: 35</li>
-              <li>Clicks: 387</li>
-              <li>Earned: $70</li>
-              <li><span class="label label-paid arrowed-in-right arrowed-in">Paid</span></li>
-            </ul>
-          </td>
-          <td class="hidden-xs">35</td>
-          <td class="hidden-xs">387</td>
-          <td class="hidden-xs">$70</td>
-          <td class="hidden-xs"><span class="label label-paid arrowed-in-right arrowed-in">Paid</span></td>
-          <td class="col-medium center">
-            <div class="btn-group btn-group-xs ">
-              <a href="" class="btn btn-inverse"><i class="fa fa-pencil icon-only"></i></a>
-              <a href="" class="btn btn-danger"><i class="fa fa-times icon-only"></i></a>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="col-small center"><label><input type="checkbox" class="tc"><span class="labels"></span></label>
-          </td>
-          <td>Jacob
-            <ul class="table-mobile-ul visible-xs list-unstyled">
-              <li>Referred: 130</li>
-              <li>Clicks: 769</li>
-              <li>Earned: $206</li>
-              <li><span class="label label-pending arrowed-in-right arrowed-in">Pending</span></li>
-            </ul>
-          </td>
-          <td class="hidden-xs">130</td>
-          <td class="hidden-xs">769</td>
-          <td class="hidden-xs">$206</td>
-          <td class="hidden-xs"><span class="label label-pending arrowed-in-right arrowed-in">Pending</span></td>
-          <td class="col-medium center">
-            <div class="btn-group btn-group-xs ">
-              <a href="" class="btn btn-inverse"><i class="fa fa-pencil icon-only"></i></a>
-              <a href="" class="btn btn-danger"><i class="fa fa-times icon-only"></i></a>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="col-small center"><label><input type="checkbox" class="tc"><span class="labels"></span></label>
-          </td>
-          <td>lee
-            <ul class="table-mobile-ul visible-xs list-unstyled">
-              <li>Referred: 56</li>
-              <li>Clicks: 537</li>
-              <li>Earned: $95</li>
-              <li><span class="label label-warning arrowed-in-right arrowed-in">Review</span></li>
-            </ul>
-          </td>
-          <td class="hidden-xs">56</td>
-          <td class="hidden-xs">537</td>
-          <td class="hidden-xs">$95</td>
-          <td class="hidden-xs"><span class="label label-warning arrowed-in-right arrowed-in">Review</span></td>
-          <td class="col-medium center">
-            <div class="btn-group btn-group-xs ">
-              <a href="" class="btn btn-inverse"><i class="fa fa-pencil icon-only"></i></a>
-              <a href="" class="btn btn-danger"><i class="fa fa-times icon-only"></i></a>
-            </div>
-          </td>
-        </tr>
+        <% @students.each do |student| %>
+            <tr>
+              <td class="col-small center" style="vertical-align: middle">
+                <label><input type="checkbox" class="tc"><span class="labels"></span></label>
+              </td>
+              <td class="col-small">
+                <img src="<%= student.picture %>"/>
+              </td>
+              <td style="vertical-align: top;width:90px">
+                <div class="progress" style="margin-bottom: 0;height: 17px">
+                  <div class="progress-bar progress-bar-primary" style="width: <%= student.note_percentage %>%;"></div>
+                </div>
+              </td>
+
+              <td><%= student.city %></td>
+              <td>
+                <span class="badge <%= student.year >= 5 ? 'badge-success' : 'badge-info'%>">
+                  Bac +<%= student.year %>
+                </span>
+
+              </td>
+              <td class="hidden-xs">
+                <% student.tags.each do |t| %>
+                    <label class="label label-primary"><%= t.name %></label>
+                <% end %>
+              </td>
+              <td class="col-medium center">
+                <div class="btn-group btn-group-xs ">
+                  <a href="" class="btn btn-inverse"><i class="fa fa-pencil icon-only"></i></a>
+                  <a href="" class="btn btn-danger"><i class="fa fa-times icon-only"></i></a>
+                </div>
+              </td>
+            </tr>
+        <% end %>
+
+        <!--<tr>-->
+          <!--<td class="col-small center"><label><input type="checkbox" class="tc"><span class="labels"></span></label>-->
+          <!--</td>-->
+          <!--<td>Jacob-->
+            <!--<ul class="table-mobile-ul visible-xs list-unstyled">-->
+              <!--<li>Referred: 130</li>-->
+              <!--<li>Clicks: 769</li>-->
+              <!--<li>Earned: $206</li>-->
+              <!--<li><span class="label label-pending arrowed-in-right arrowed-in">Pending</span></li>-->
+            <!--</ul>-->
+          <!--</td>-->
+          <!--<td class="hidden-xs">130</td>-->
+          <!--<td class="hidden-xs">769</td>-->
+          <!--<td class="hidden-xs">$206</td>-->
+          <!--<td class="hidden-xs"><span class="label label-pending arrowed-in-right arrowed-in">Pending</span></td>-->
+          <!--<td class="col-medium center">-->
+            <!--<div class="btn-group btn-group-xs ">-->
+              <!--<a href="" class="btn btn-inverse"><i class="fa fa-pencil icon-only"></i></a>-->
+              <!--<a href="" class="btn btn-danger"><i class="fa fa-times icon-only"></i></a>-->
+            <!--</div>-->
+          <!--</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+          <!--<td class="col-small center"><label><input type="checkbox" class="tc"><span class="labels"></span></label>-->
+          <!--</td>-->
+          <!--<td>lee-->
+            <!--<ul class="table-mobile-ul visible-xs list-unstyled">-->
+              <!--<li>Referred: 56</li>-->
+              <!--<li>Clicks: 537</li>-->
+              <!--<li>Earned: $95</li>-->
+              <!--<li><span class="label label-warning arrowed-in-right arrowed-in">Review</span></li>-->
+            <!--</ul>-->
+          <!--</td>-->
+          <!--<td class="hidden-xs">56</td>-->
+          <!--<td class="hidden-xs">537</td>-->
+          <!--<td class="hidden-xs">$95</td>-->
+          <!--<td class="hidden-xs"><span class="label label-warning arrowed-in-right arrowed-in">Review</span></td>-->
+          <!--<td class="col-medium center">-->
+            <!--<div class="btn-group btn-group-xs ">-->
+              <!--<a href="" class="btn btn-inverse"><i class="fa fa-pencil icon-only"></i></a>-->
+              <!--<a href="" class="btn btn-danger"><i class="fa fa-times icon-only"></i></a>-->
+            <!--</div>-->
+          <!--</td>-->
+        <!--</tr>-->
         </tbody>
       </table>
     </div>

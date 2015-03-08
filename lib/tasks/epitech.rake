@@ -147,7 +147,7 @@ namespace :epitech do
     puts 'Login in...'
     agent = login
     puts 'Logged in.'
-    EUser.where("last_batch < #{batch_id}").each do |user|
+    EUser.order('login ASC').where("last_batch < #{batch_id}").each do |user|
       scape_user(agent, batch_id, user)
     end
   end

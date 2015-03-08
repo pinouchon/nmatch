@@ -1,7 +1,7 @@
-class User < ActiveRecord::Base
-  has_many :tag_user
-  has_many :tags, through: :tag_user
-  belongs_to :special_user, polymorphic: true
+class Student < ActiveRecord::Base
+  has_many :student_tags
+  has_many :tags, through: :student_tags
+  belongs_to :x_user, polymorphic: true
 
   def full_name
     "#{first_name} #{last_name}"
@@ -32,5 +32,12 @@ class User < ActiveRecord::Base
       linkedin_summary: linkedin_summary,
       linkedin_scraped: linkedin_scraped
     }
+  end
+
+  def note_percentage
+    result = real_average * 5
+    result = 0 if result < 0
+    result = 100 if result > 100
+    result
   end
 end

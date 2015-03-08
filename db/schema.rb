@@ -92,20 +92,14 @@ ActiveRecord::Schema.define(version: 20150222230037) do
     t.datetime "updated_at"
   end
 
-  create_table "tag_users", force: true do |t|
-    t.integer  "user_id"
+  create_table "student_tags", force: true do |t|
+    t.integer  "student_id"
     t.integer  "tag_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "tags", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "users", force: true do |t|
+  create_table "students", force: true do |t|
     t.integer  "batch_id"
     t.integer  "user_id"
     t.string   "user_type"
@@ -129,6 +123,12 @@ ActiveRecord::Schema.define(version: 20150222230037) do
     t.text     "linkedin_summary"
     t.boolean  "linkedin_scraped",     default: false
     t.boolean  "linkedin_found",       default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tags", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

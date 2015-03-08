@@ -2,7 +2,7 @@ class EUser < ActiveRecord::Base
   belongs_to :batch
   has_many :e_modules
   has_many :e_notes
-  has_one :user, as: :special_user
+  has_one :student, as: :x_user
 
   validates_presence_of :login
   validates_uniqueness_of :login, scope: :batch_id

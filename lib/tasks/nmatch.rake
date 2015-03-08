@@ -2,7 +2,7 @@ namespace :nmatch do
   task copy_users: :environment do
     batch_id = Batch.current_or_create.id
     puts 'Deleting users of type EUser...'
-    User.where("batch_id = ? AND user_type = 'EUser'", batch_id).delete_all
+    Student.where("batch_id = ? AND user_type = 'EUser'", batch_id).delete_all
     puts 'Copying e_users...'
     # e_user_hash = EUser.where('batch_id = ?', batch_id).map do |e_user|
     e_user_hash = EUser.where('last_batch = ?', batch_id).map do |e_user|
@@ -22,10 +22,10 @@ namespace :nmatch do
       }
     end
     puts 'Inserting users...'
-    users = User.create(e_user_hash) do |u|
+    students = Student.create(e_user_hash) do |u|
       u.batch_id = batch_id
     end
-    puts "#{users.count} EUsers copied"
+    puts "#{students.count} EUsers copied"
     puts 'Done'
   end
 
